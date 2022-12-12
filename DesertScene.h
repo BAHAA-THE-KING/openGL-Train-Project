@@ -16,34 +16,38 @@ class DesertScene{
            float length;
            float height;
            float ang=0;
-           int imgdune;
+           int imgdune1;
+           int imgdune2;
            int imgskybox;
            int imgcactus;
            Sphere dunes[20];
            Point dunesPts[20];
            SkyBox skybox;
-           Cactus c[10];
-           DesertScene(Point center,float width,float length,float height,int imgdune,int imgskybox,int imgcactus){
+           Cactus c[20];
+           DesertScene(Point center,float width,float length,float height,int imgdune1,int imgdune2,int imgskybox,int imgcactus){
                       this->center=center;
                       this->width=width;
                       this->length=length;
                       this->height=height;
-                      this->imgdune=imgdune;
+                      this->imgdune1=imgdune1;
+                      this->imgdune2=imgdune2;
                       this->imgskybox=imgskybox;
                       this->imgcactus=imgcactus;
                       
                       for (int i=0;i<20;i++){
                          float r=dis(gen)%10+1;
-                         dunes[i]=Sphere(r,10,10,imgdune);
+                         int img=imgdune2;
+                         if (5000/dis(gen)<0.5)img=imgdune1;
+                         dunes[i]=Sphere(r,10,10,img);
                          }
-                      for (int i=0;i<10;i++){
-                         float x=dis(gen)%((int)width)-(width/2);
+                      for (int i=0;i<20;i++){
+                         float x=pow(-1,dis(gen)%2)*(dis(gen)%((int)width/3)+(width/6));
                          float z=dis(gen)%((int)length)-(length/2);
                          dunesPts[i]=Point(x,0,z);
                          }
                       skybox=SkyBox(center,width,length,height,imgskybox);
-                      for (int i=0;i<10;i++){
-                         float x=dis(gen)%((int)width-20)-(width-20)/2;
+                      for (int i=0;i<20;i++){
+                         float x=pow(-1,dis(gen)%2)*(dis(gen)%((int)width/3)+(width/6));
                          float z=dis(gen)%((int)length-20)-(length-20)/2;
                          c[i]=Cactus(Point(x,0,z),imgcactus);
                          }
@@ -59,7 +63,7 @@ class DesertScene{
                   glPopMatrix();
                   }
                
-               for (int i=0;i<10;i++)
+               for (int i=0;i<20;i++)
                   c[i].draw();
                };
      };

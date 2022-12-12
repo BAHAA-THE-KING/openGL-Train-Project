@@ -14,6 +14,7 @@
 #include <math.h>
 #include "DesertScene.h"
 #include "texture.h"
+#include "Model_3DS.h"
 #include "Camera.h"
 
 using namespace std;
@@ -48,16 +49,30 @@ GLvoid ReSizeGLScene(GLsizei width,GLsizei height) // Resize And Initialize The 
    glLoadIdentity(); // Reset The Modelview Matrix
 }
 
-int dune;
+int dune1;
+int dune2;
 int skybox;
 int cactus;
+Model_3DS* rcactus;
 DesertScene* ds;
 int InitGL(GLvoid) // All Setup For OpenGL Goes Here
 {
-   dune=LoadTexture("images/sand2.bmp");
+   dune1=LoadTexture("images/sand11.bmp");
+   dune2=LoadTexture("images/sand12.bmp");
    skybox=LoadTexture("images/skybox.bmp");
-   cactus=LoadTexture("images/cactus.bmp");
-   ds=new DesertScene(Point(0,0,0),750,1000,500,dune,skybox,cactus);
+   cactus=LoadTexture("images/cactus2.bmp");
+   rcactus=new Model_3DS();
+   rcactus->Load((char*)"models/untitled.3ds");
+   ds=new DesertScene(Point(0,0,0),750,1000,500,dune1,dune2,skybox,cactus);
+   
+   //glEnable(GL_NORMALIZE);
+   //glEnable(GL_LIGHTING);
+   //glEnable(GL_LIGHT0);
+   //GLfloat asd[4]={100,10,100,1};
+   //GLfloat dsa[4]={1,1,1,1};
+   //glLightfv(GL_LIGHT0,GL_POSITION,asd);
+   //glLightfv(GL_LIGHT0,GL_AMBIENT_AND_DIFFUSE,dsa);
+   //glLightfv(GL_LIGHT0,GL_SPECULAR,dsa);
    
    glShadeModel(GL_SMOOTH); // Enable Smooth Shading
    glClearColor(0.0f,0.0f,0.0f,0.5f); // Black Background
@@ -77,11 +92,20 @@ void DrawGLScene(GLvoid) // Here's Where We Do All The Drawing
    
    glLoadIdentity(); // Reset The Current Modelview Matrix
    
-   gluPerspective(45.0f,aspect,0.1f,1000.0f);
+   gluPerspective(45.0f,aspect,0.1f,2000.0f);
    
    camera.move();
    
    ds->draw();
+   
+   rcactus->pos.x=0;
+   rcactus->pos.y=0;
+   rcactus->pos.z=0;
+   rcactus->scale=10;
+   glColor3f(1,0,0);
+   rcactus->Draw();
+   glColor3f(1,1,1);
+   
    //DO NOT REMOVE THIS
    SwapBuffers(hDC);
 }
