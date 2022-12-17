@@ -4,7 +4,7 @@
 #include "Plane.h"
 #include "Sphere.h"
 #include "Cactus.h"
-#include "Rail.h"
+#include "RailGenerator.h"
 #include <random>
 std::random_device rd;
 std::mt19937 gen(rd());
@@ -27,7 +27,7 @@ class DesertScene{
            Point dunesPts[20];
            SkyBox skybox;
            Cactus c[20];
-           Rail rail[800];
+           RailGenerator railGenerator;
            DesertScene(Point center,float width,float length,float height,int imgdune1,int imgdune2,int imgskybox,int imgcactus,int imgmetal,int imgwood){
                       this->center=center;
                       this->width=width;
@@ -60,8 +60,8 @@ class DesertScene{
                          float z=dis(gen)%((int)length-20)-(length-20)/2;
                          c[i]=Cactus(Point(x,0,z),imgcactus);
                          }
-                      
-                      for (int i=0;i<800;i++){this->rail[i]=Rail(Point(0,0,i*1.25-length/2),imgmetal,imgwood,4,0.25,0.15,1.25,0.5);}
+
+                      railGenerator=RailGenerator(length,imgmetal,imgwood,Point(center.x,center.y,center.z-length/2));
                       };
            void draw(){
                skybox.draw();
@@ -77,6 +77,6 @@ class DesertScene{
                for (int i=0;i<20;i++)
                   c[i].draw();
                
-               for (int i=0;i<800;i++){this->rail[i].draw();}
+               railGenerator.draw();
                };
      };
