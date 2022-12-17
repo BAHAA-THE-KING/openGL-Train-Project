@@ -6,13 +6,15 @@ class SkyBox{
            float length;
            float height;
            int img;
+           bool decreased;
            SkyBox(){};
-           SkyBox(Point center,float width,float length,float height,int img){
+           SkyBox(Point center,float width,float length,float height,int img,bool decreased=false){
                  this->center=center;
                  this->width=width;
                  this->length=length;
                  this->height=height;
                  this->img=img;
+                 this->decreased=decreased;
                  this->LBD=Point(center.x-width/2,center.y,center.z+length/2);
                  this->LFD=Point(center.x-width/2,center.y,center.z-length/2);
                  this->LFU=Point(center.x-width/2,center.y+height,center.z-length/2);
@@ -24,14 +26,16 @@ class SkyBox{
 
                  };
            void draw(){
-               LBD.y-=height/2;
-               LFD.y-=height/2;
-               LFU.y-=height/2;
-               LBU.y-=height/2;
-               RBD.y-=height/2;
-               RFD.y-=height/2;
-               RFU.y-=height/2;
-               RBU.y-=height/2;
+               if (decreased){
+                 LBD.y-=height/3;
+                 LFD.y-=height/3;
+                 LFU.y-=height/3;
+                 LBU.y-=height/3;
+                 RBD.y-=height/3;
+                 RFD.y-=height/3;
+                 RFU.y-=height/3;
+                 RBU.y-=height/3;
+                 }
                
                //Left
                drawImageQuad(img,
@@ -54,15 +58,16 @@ class SkyBox{
                              LFU,RFU,RBU,LBU,
                              Point(0.25,2/3.0),Point(0.5,2/3.0),Point(0.5,1),Point(0.25,1));
                
-               LBD.y+=height/2;
-               LFD.y+=height/2;
-               LFU.y+=height/2;
-               LBU.y+=height/2;
-               RBD.y+=height/2;
-               RFD.y+=height/2;
-               RFU.y+=height/2;
-               RBU.y+=height/2;
-               
+               if (decreased){
+                 LBD.y+=height/3;
+                 LFD.y+=height/3;
+                 LFU.y+=height/3;
+                 LBU.y+=height/3;
+                 RBD.y+=height/3;
+                 RFD.y+=height/3;
+                 RFU.y+=height/3;
+                 RBU.y+=height/3;
+                 }
                //Down
                drawImageQuad(img,
                              LBD,RBD,RFD,LFD,

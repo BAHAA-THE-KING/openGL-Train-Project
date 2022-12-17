@@ -5,12 +5,14 @@ class Cylinder{
            int sectors;
            int height;
            int img;
+           int repeat;
            Cylinder(){};
-           Cylinder(float r,int sectors,int height,int img){
+           Cylinder(float r,int sectors,int height,int img,int repeat=6){
                    this->r=r;
                    this->sectors=sectors;
                    this->height=height;
                    this->img=img;
+                   this->repeat=repeat;
                    init();
                    };
            void draw(){
@@ -22,7 +24,6 @@ class Cylinder{
                   glVertex3f(pts[i].x,0,pts[i].z);
                glEnd();
                
-               glBegin(GL_QUADS);
                for (int i=0;i<sectors;i++){
                   Point left=pts[i];
                   Point right=pts[(i+1)%sectors];
@@ -32,13 +33,12 @@ class Cylinder{
                                 Point(right.x,0,right.z),
                                 Point(right.x,height,right.z),
                                 Point(left.x,height,left.z),
-                                Point(6.0*i/sectors,0),
-                                Point(6.0*(i+1)/sectors,0),
-                                Point(6.0*(i+1)/sectors,2),
-                                Point(6.0*i/sectors,2)
+                                Point(1.0*repeat*i/sectors,0),
+                                Point(1.0*repeat*(i+1)/sectors,0),
+                                Point(1.0*repeat*(i+1)/sectors,2),
+                                Point(1.0*repeat*i/sectors,2)
                                 );
                   }
-               glEnd();
                
                glBegin(GL_POLYGON);
                for (int i=0;i<sectors;i++)

@@ -14,7 +14,6 @@
 #include <math.h>
 #include "DesertScene.h"
 #include "texture.h"
-#include "Model_3DS.h"
 #include "Camera.h"
 
 using namespace std;
@@ -53,7 +52,8 @@ int dune1;
 int dune2;
 int skybox;
 int cactus;
-Model_3DS* rcactus;
+int metal;
+int wood;
 DesertScene* ds;
 int InitGL(GLvoid) // All Setup For OpenGL Goes Here
 {
@@ -61,9 +61,9 @@ int InitGL(GLvoid) // All Setup For OpenGL Goes Here
    dune2=LoadTexture("images/sand12.bmp");
    skybox=LoadTexture("images/skybox.bmp");
    cactus=LoadTexture("images/cactus2.bmp");
-   rcactus=new Model_3DS();
-   rcactus->Load((char*)"models/untitled.3ds");
-   ds=new DesertScene(Point(0,0,0),750,1000,500,dune1,dune2,skybox,cactus);
+   metal=LoadTexture("images/metal2.bmp");
+   wood=LoadTexture("images/wood.bmp");
+   ds=new DesertScene(Point(0,0,0),750,1000,500,dune1,dune2,skybox,cactus,metal,wood);
    
    //glEnable(GL_NORMALIZE);
    //glEnable(GL_LIGHTING);
@@ -92,19 +92,11 @@ void DrawGLScene(GLvoid) // Here's Where We Do All The Drawing
    
    glLoadIdentity(); // Reset The Current Modelview Matrix
    
-   gluPerspective(45.0f,aspect,0.1f,2000.0f);
+   gluPerspective(45.0f,aspect,0.1f,1500.0f);
    
    camera.move();
    
    ds->draw();
-   
-   rcactus->pos.x=0;
-   rcactus->pos.y=0;
-   rcactus->pos.z=0;
-   rcactus->scale=10;
-   glColor3f(1,0,0);
-   rcactus->Draw();
-   glColor3f(1,1,1);
    
    //DO NOT REMOVE THIS
    SwapBuffers(hDC);
