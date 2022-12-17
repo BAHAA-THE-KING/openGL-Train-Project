@@ -17,6 +17,10 @@
 #include "Tree.h"
 #include "Village.h"
 #include "Skybox.h"
+#include "Point.h"
+#include "premitives.h"
+#include "Wheel.h"
+#include "Trailer.h"
 using namespace std;
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Context
@@ -42,7 +46,7 @@ GLvoid ReSizeGLScene(GLsizei width, GLsizei height)		// Resize And Initialize Th
 	glLoadIdentity();									// Reset The Projection Matrix
 
 	// Calculate The Aspect Ratio Of The Window
-	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 0.1f, 100.0f);
+	gluPerspective(45.0f, (GLfloat)width / (GLfloat)height, 0.1f, 2000.0f);
 
 	glMatrixMode(GL_MODELVIEW);							// Select The Modelview Matrix
 	glLoadIdentity();									// Reset The Modelview Matrix
@@ -51,7 +55,11 @@ int house_door, house_window, house_wall;
 int house_roof[4];
 int mill_wall, mill_door, mill_roof, mill_window, mill_blade;
 int tree_brown, tree_green;
+int glass;
+int train_door, train_wall;
 int skybox;
+int chair_texture1=-1,chair_texture2=-1;
+int wheel;
 Village *v;
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
@@ -77,37 +85,31 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	tree_brown=LoadTexture("picture/village/tree/brown.bmp",255);
 	tree_green=LoadTexture("picture/village/tree/green.bmp",255);
 	skybox=LoadTexture("picture/village/skybox/skybox.bmp",255);
+	glass=LoadTexture("picture/trailler/glass.bmp",255);
+	train_door=LoadTexture("picture/village/house/door.bmp",255);
+	train_wall= LoadTexture("picture/village/house/wall.bmp",255);
+	wheel=LoadTexture("picture/trailler/wheel.bmp",255);
 	v= new Village(Point(-20,0,-40),40,30,house_door,house_wall,house_window,house_roof,mill_door,mill_wall,mill_window,mill_roof,mill_blade,tree_brown,tree_green);
 	
 	return TRUE;										// Initialization Went OK
 }
 
-struct point
-{
-	float x,y,z;
-	point (){}
-	point (float x, float y, float z)
-	{
-		this->x=x;
-		this->y=y;
-		this->z=z;
-	}
-};
+
 
 float angle = 0;
 float angle2 = 0;
 Point *loc = new Point(0,0,-5);
 void location(){
-  if(keys['W']){
+  if(keys['S']){
     loc->z--;
   }
-  if(keys['S']){
+  if(keys['W']){
     loc->z++;
   }
-  if(keys['D']){
+  if(keys['A']){
     loc->x++;
   }
-  if(keys['A']){
+  if(keys['D']){
     loc->x--;
   }
   if(keys['Q']){
@@ -134,27 +136,237 @@ void location(){
 
 }
 
-
+	Point bottom_left_back=  Point (0,3,0);
+	float length=20, hight=10,depth=10;
+	float door_length=4, door_hight=5*hight/6.0;
+	bool is_door_open=0;
+	float door_angle=0, door_angle_change=0;
 void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
-	glTranslated(0,-3,0);
-	//glRotated(angle,0,1,0);
-	
-//	angle+=1;
+	glTranslated(0,-3,-20);
 	location();
-	Skybox *s=new Skybox(Point(-50,0,-50),100,100,100,skybox);
-	s->DrawSkybox();
+	
 	v->DrawVillage();
-	/*House *a = new House(Point (-5,0,0),4,3,1,3,house_door,house_wall,house_window,house_roof);
-	a->DrawHouse();
-	glTranslated(0,0,-2);
-	Mill *b = new Mill(Point (6,0,0),5,5,2,10,mill_door,mill_wall,mill_window,mill_roof,mill_blade);
-	b->DrawMill();
-	Tree *t= new Tree(Point (0,0,0),1,1,2,2,tree_brown,tree_green);
-	t->DrawTree();*/
+	Skybox s= Skybox(Point(-50,0,-50),100,100,100,skybox);
+	s.DrawSkybox();
+	
+
+	//if (door_angle>0)
+	//{
+	//	door_angle_change=0;
+	//	door_angle=0;
+	//	is_door_open=0;
+	//}
+	//
+	//if (door_angle<-90)
+	//{
+	//	door_angle_change=0;
+	//	door_angle=-90;
+	//	is_door_open=1;
+	//}
+
+	//if (keys['O'])
+	//{
+	//	if (is_door_open)
+	//	{
+	//		door_angle_change=5;
+	//	}
+	//	else
+	//		door_angle_change=-5;
+	//}
+
+
+	Trailer t =Trailer(bottom_left_back,length,depth,hight,door_length,door_hight,1,2,1,1,1.5,0.5,1,wheel,glass,house_door,house_wall,house_roof[0],mill_wall);
+	t.DrawTrailer();
+
+	/*
+	glPushMatrix();
+		glTranslated(bottom_left_back.x, bottom_left_back.y,bottom_left_back.z);
+		Point a= Point (0,0,0);
+		Point b= Point (a.x+length,a.y,a.z);
+		Point c= Point (a.x+length,a.y,a.z+depth);
+		Point d= Point (a.x,a.y,a.z+depth);
+		Point e= Point (a.x,a.y+hight,a.z);
+		Point f= Point (a.x+length,a.y+hight,a.z);
+		Point g= Point (a.x+length,a.y+hight,a.z+depth);
+		Point h= Point (a.x,a.y+hight,a.z+depth);
+		//draw wall
+		glColor3f(1,1,1);
+		glBindTexture(GL_TEXTURE_2D, train_wall);
+
+		//ABCD
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(a.x,a.y,a.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(b.x,b.y,b.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(c.x,c.y,c.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(d.x,d.y,d.z);
+		glEnd();
+
+
+		//EFGH
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(e.x,e.y,e.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(f.x,f.y,f.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(g.x,g.y,g.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(h.x,h.y,h.z);
+		glEnd();
+
+		//ADHE
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(a.x,a.y,a.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(d.x,d.y,d.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(h.x,h.y,h.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(e.x,e.y,e.z);
+		glEnd();
+
+		//CBFG
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(c.x,c.y,c.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(b.x,b.y,b.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(f.x,f.y,f.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(g.x,g.y,g.z);
+		glEnd();
+
+		//ABFE
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(a.x,a.y,a.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(b.x,b.y,b.z);
+		glTexCoord2d(1, 0.5);
+		glVertex3f(f.x,b.y+hight/2,f.z);
+		glTexCoord2d(0, 0.5);
+		glVertex3f(e.x,a.y+hight/2,e.z);
+		glEnd();
+
+		glBegin(GL_QUADS);
+		
+		glTexCoord2d(0, 5/6.0);
+		glVertex3f(a.x,a.y+5*hight/6.0,a.z);
+		glTexCoord2d(1, 5/6.0);
+		glVertex3f(b.x,b.y+5*hight/6.0,b.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(f.x,f.y,f.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(e.x,e.y,e.z);
+		glEnd();
+
+		
+		//DCGH
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(d.x+door_length,d.y,d.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(c.x,c.y,c.z);
+		glTexCoord2d(1, 0.5);
+		glVertex3f(g.x,c.y+hight/2,g.z);
+		glTexCoord2d(0, 0.5);
+		glVertex3f(h.x+door_length,d.y+hight/2,h.z);
+		glEnd();
+
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 5/6.0);
+		glVertex3f(d.x,d.y+5*hight/6.0,d.z);
+		glTexCoord2d(1, 5/6.0);
+		glVertex3f(c.x,c.y+5*hight/6.0,c.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(g.x,g.y,g.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(h.x,h.y,h.z);
+		glEnd();
+
+		glEnable(GL_BLEND);
+		glColor4f(1,1,1,0.5);
+		glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+		glBindTexture(GL_TEXTURE_2D,glass);
+		//ABFE glass
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(a.x,a.y+hight/2.0,a.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(b.x,b.y+hight/2.0,b.z);
+		glTexCoord2d(1, 1);
+		glVertex3f(f.x,b.y+5*hight/6.0,f.z);
+		glTexCoord2d(0, 1);
+		glVertex3f(e.x,a.y+5*hight/6.0,e.z);
+		glEnd();
+
+		//dcgh glass
+		glBegin(GL_QUADS);
+		glTexCoord2d(0, 0);
+		glVertex3f(d.x+door_length,d.y+hight/2.0,d.z);
+		glTexCoord2d(1, 0);
+		glVertex3f(c.x,c.y+hight/2.0,c.z);
+		glTexCoord2d(1, 0.5);
+		glVertex3f(g.x,c.y+5*hight/6.0,g.z);
+		glTexCoord2d(0, 0.5);
+		glVertex3f(h.x+door_length,d.y+5*hight/6.0,h.z);
+		glEnd();
+		glDisable(GL_BLEND);
+
+		// door
+		glBindTexture(GL_TEXTURE_2D,train_door);
+		glPushMatrix();
+			glTranslated(d.x,d.y,d.z);
+			glRotated(door_angle,0,1,0);
+			glBegin(GL_QUADS);
+			glTexCoord2d(0, 0);
+			glVertex3f(0,0,0);
+			glTexCoord2d(1, 0);
+			glVertex3f(door_length,0,0);
+			glTexCoord2d(1, 0.5);
+			glVertex3f(door_length,5*hight/6.0,0);
+			glTexCoord2d(0, 0.5);
+			glVertex3f(0,5*hight/6.0,0);
+			glEnd();
+		glPopMatrix();
+		
+
+		
+
+
+		//chairs
+		float chair_length=2, chair_depth=2,chair_hight=2;
+		for (int i=0; i<length/(chair_length+1)-1; i++)
+		{
+			chair c;
+			c.drawchair(Point(i*(chair_length+1)+1,0,0),chair_length,chair_length/4,chair_hight,chair_hight,chair_depth,chair_texture1,chair_texture2);
+			c.drawchair(Point(i*(chair_length+1)+1,0,chair_depth),chair_length,chair_length/4,chair_hight,chair_hight,chair_depth,chair_texture1,chair_texture2);
+
+		}
+
+
+
+		glTranslated(-10,3,0);
+		Wheel w = Wheel(Point (0,0,0),2,0.5,0.3,wheel);
+		w.DrawWheel();
+
+
+
+
+
+	glPopMatrix();*/
+
+	//door_angle+=door_angle_change;
 	glFlush();											// Done Drawing The Quad	
 
 	//DO NOT REMOVE THIS
@@ -470,7 +682,7 @@ int WINAPI WinMain(HINSTANCE	hInstance,			// Instance
 
 
 	//Set drawing timer to 20 frame per second
-	UINT timer = SetTimer(hWnd, 0, 50, (TIMERPROC)NULL);
+	UINT timer = SetTimer(hWnd, 0, 0, (TIMERPROC)NULL);
 
 	while (GetMessage(&msg, NULL, 0, 0))
 	{

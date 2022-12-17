@@ -10,6 +10,7 @@
 #include "House.h"
 #include "Mill.h"
 #include "Tree.h"
+#include "premitives.h"
 using namespace std;
 
 
@@ -34,83 +35,6 @@ Skybox::Skybox(Point bottom_left_back, float length, float depth, float hight, i
 void Skybox::DrawSkybox()
 {
 	glPushMatrix();
-		glTranslated(bottom_left_back.x, bottom_left_back.y, bottom_left_back.z);
-		glColor3f(1,1,1);
-		glBindTexture(GL_TEXTURE_2D, texture);
-
-		//back
-		glBegin(GL_QUADS);
-		glTexCoord2d(0.25, 0.33);
-		glVertex3d(0, 0, 0);
-		glTexCoord2d(0.5, 0.33);
-		glVertex3d(length, 0, 0);
-		glTexCoord2d(0.5, 0.67);
-		glVertex3d(length, hight, 0);
-		glTexCoord2d(0.25, 0.67);
-		glVertex3d(0, hight, 0);
-		glEnd();
-
-
-		//front
-		glBegin(GL_QUADS);
-		glTexCoord2d(1, 0.33);
-		glVertex3d(0, 0, depth);
-		glTexCoord2d(0.75, 0.33);
-		glVertex3d(length, 0, depth);
-		glTexCoord2d(0.75, 0.67);
-		glVertex3d(length, hight, depth);
-		glTexCoord2d(1, 0.67);
-		glVertex3d(0, hight, depth);
-		glEnd();
-
-		//left
-		glBegin(GL_QUADS);
-		glTexCoord2d(0, 0.33);
-		glVertex3d(0, 0, depth);
-		glTexCoord2d(0.25, 0.33);
-		glVertex3d(0, 0, 0);
-		glTexCoord2d(0.25, 0.67);
-		glVertex3d(0, hight, 0);
-		glTexCoord2d(0, 0.67);
-		glVertex3d(0, hight, depth);
-		glEnd();
-
-		//right
-		glBegin(GL_QUADS);
-		glTexCoord2d(0.75, 0.33);
-		glVertex3d(length, 0, depth);
-		glTexCoord2d(0.5, 0.33);
-		glVertex3d(length, 0, 0);
-		glTexCoord2d(0.5, 0.67);
-		glVertex3d(length, hight, 0);
-		glTexCoord2d(0.75, 0.67);
-		glVertex3d(length, hight, depth);
-		glEnd();
-
-
-		//top
-		glBegin(GL_QUADS);
-		glTexCoord2d(0.25 , 0.67);
-		glVertex3d(0, hight, 0);
-		glTexCoord2d(0.5, 0.67);
-		glVertex3d(length, hight, 0);
-		glTexCoord2d(0.5, 1);
-		glVertex3d(length, hight, depth);
-		glTexCoord2d(0.25, 1);
-		glVertex3d(0, hight, depth);
-		glEnd();
-
-
-		//bottom
-		glBegin(GL_QUADS);
-		glTexCoord2d(0.25, 0.33);
-		glVertex3d(0, 0, 0);
-		glTexCoord2d(0.5, 0.33);
-		glVertex3d(length, 0, 0);
-		glTexCoord2d(0.5,0);
-		glVertex3d(length, 0, depth);
-		glTexCoord2d(0.25, 0);
-		glVertex3d(0, 0, depth);
-		glEnd();
+		premitives::DrawCupe(bottom_left_back,length,hight,depth,texture);
 	glPopMatrix();
 }

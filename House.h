@@ -1,6 +1,6 @@
 #pragma once
 #include "Point.h"
-class House
+class House 
 {
 
 public:
