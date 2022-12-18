@@ -45,42 +45,48 @@ void Window::DrawWindow(float angle_y)
 		if (angle_y==180)
 		{
 			glRotated(angle_y,0,1,0);
-			glTranslated(-length,0,0);
+			glTranslated(0,0,-length);
 		}
 		glPushMatrix();
-			float X_max=0.5;
-			glTranslated(0,0,X_max);
-			for (float x=0; x<=length; x+=0.1)
-			{
-				glBindTexture(GL_TEXTURE_2D,texture_cover);
+				//cover
+			float X_max=0.3;
+			float phase=1;
+			premitives::DrawCupe(Point(0.1,0,0.1),3*X_max,X_max,length-0.2,-1,1,1,1,1,0,1);
+			glPushMatrix();
+				glTranslated(2*X_max,0,0);
+				for (float z=0; z<=length; z+=0.1)
+					{
+						glBindTexture(GL_TEXTURE_2D,texture_cover);
+						glBegin(GL_QUADS);
+							glTexCoord2f(0,0);
+							glVertex3f(X_max*sin(phase*z),0,z);
+							glTexCoord2f(1,0);		
+							glVertex3f(X_max*sin(phase*(z+0.1)),0,z+0.1);
+							glTexCoord2f(1,1);
+							glVertex3f(X_max*sin(phase*(z+0.1)),-hight,z+0.1);
+							glTexCoord2f(0,1);
+							glVertex3f(X_max*sin(phase*z),-hight,z);
+						glEnd();
+					}
+			glPopMatrix();
+
+			//window
+			glTranslated(0,-hight,0);
+			glEnable(GL_BLEND);
+				glColor4f(1,1,1,0.5);
+				glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
+				glBindTexture(GL_TEXTURE_2D,texture_window);
 				glBegin(GL_QUADS);
-					glTexCoord2f(0,0);
-					glVertex3f(x,0,-X_max*sin(phase*x));
-					glTexCoord2f(1,0);		
-					glVertex3f(x+0.1,0,-X_max*sin(phase*(x+0.1)));
-					glTexCoord2f(1,1);
-					glVertex3f(x+0.1,hight,-X_max*sin(phase*(x+0.1)));
-					glTexCoord2f(0,1);
-					glVertex3f(x,hight,-X_max*sin(phase*x));
+					glTexCoord2d(0, 0);
+					glVertex3f(0,0,0);
+					glTexCoord2d(1, 0);
+					glVertex3f(0,0,length);
+					glTexCoord2d(1, 1);
+					glVertex3f(0,hight,length);
+					glTexCoord2d(0, 1);
+					glVertex3f(0,hight,0);
 				glEnd();
-			}
-			glTranslated(0,hight-X_max/2,0);
-			premitives::DrawCupe(Point(0,0,0),length,X_max,2*X_max,texture_box,1,1,1,1,0,1);
-		glPopMatrix();
-		glEnable(GL_BLEND);
-			glColor4f(1,1,1,0.5);
-			glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
-			glBindTexture(GL_TEXTURE_2D,texture_window);
-			glBegin(GL_QUADS);
-				glTexCoord2d(0, 0);
-				glVertex3f(0,0,0);
-				glTexCoord2d(1, 0);
-				glVertex3f(length,0,0);
-				glTexCoord2d(1, 1);
-				glVertex3f(length,hight,0);
-				glTexCoord2d(0, 1);
-				glVertex3f(0,hight,0);
-			glEnd();
-		glDisable(GL_BLEND);
+			glDisable(GL_BLEND);
+			
 	glPopMatrix();
 }

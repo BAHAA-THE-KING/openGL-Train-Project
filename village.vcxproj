@@ -72,7 +72,7 @@
     <ClCompile Include="premitives.cpp" />
     <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="texture.cpp" />
-    <ClCompile Include="Trailer.cpp" />
+    <ClCompile Include="Trailler.cpp" />
     <ClCompile Include="Tree.cpp" />
     <ClCompile Include="source.cpp" />
     <ClCompile Include="Village.cpp" />
@@ -90,7 +90,7 @@
     <ClInclude Include="Skybox.h" />
     <ClInclude Include="stdc++.h" />
     <ClInclude Include="texture.h" />
-    <ClInclude Include="Trailer.h" />
+    <ClInclude Include="Trailler.h" />
     <ClInclude Include="Tree.h" />
     <ClInclude Include="Village.h" />
     <ClInclude Include="Wheel.h" />

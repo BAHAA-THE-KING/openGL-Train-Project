@@ -9,7 +9,7 @@ public:
 	int texture;
 	Door(void);
 	~Door(void);
-	Door(Point bottom_left, float length, float hight, int texture);
+	Door(Point bottom_left, float length, float hight, int texture, float angle);
 	void DrawDoor();
 };
 

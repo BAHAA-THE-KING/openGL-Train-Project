@@ -18,7 +18,7 @@ Door::~Door(void)
 }
 
 
-Door::Door(Point bottom_left, float length, float hight, int texture)
+Door::Door(Point bottom_left, float length, float hight, int texture, float angle=0)
 {
 	this->bottom_left=bottom_left;
 	this->hight=hight;
@@ -27,14 +27,15 @@ Door::Door(Point bottom_left, float length, float hight, int texture)
 	this->angle=0;
 	this->angle_change=0;
 	this->is_open=0;
+	this->angle=angle;
 }
 
 void Door::DrawDoor(){
 
 	glPushMatrix();
 		glTranslated(bottom_left.x,bottom_left.y,bottom_left.z);
-		glRotated(angle,0,1,0);
 		glBindTexture(GL_TEXTURE_2D,texture);
+		glRotated(angle,0,1,0);
 		glBegin(GL_QUADS);
 			glTexCoord2f(0,0);
 			glVertex3f(0,0,0);
