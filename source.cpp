@@ -21,6 +21,10 @@
 #include "premitives.h"
 #include "Wheel.h"
 #include "Trailler.h"
+#include "LeaderTrailler.h"
+#include "Camera.h"
+#include "Object.h"
+#include "Door.h"
 
 
 using namespace std;
@@ -28,7 +32,7 @@ HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Context
 HWND		hWnd = NULL;		// Holds Our Window Handle
 HINSTANCE	hInstance;		// Holds The Instance Of The Application
-
+vector <Door> d;
 bool	keys[256];			// Array Used For The Keyboard Routine
 bool	active = TRUE;		// Window Active Flag Set To TRUE By Default
 bool	fullscreen = TRUE;	// Fullscreen Flag Set To Fullscreen Mode By Default
@@ -62,8 +66,17 @@ int train_door, train_wall;
 int skybox;
 int chair_texture1=-1,chair_texture2=-1;
 int wheel;
+int test;
+int fire[10];
+int smoke;
+int coal;
+int control_panel;
+int iron;
+int holo_door, holo_body;
+int trailler_door, trailler_wall, trailler_cover;
 Village *v;
 Trailler *t ; 
+LeaderTrailler *lt ;
 
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
@@ -93,12 +106,34 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	train_door=LoadTexture("picture/village/house/door.bmp",255);
 	train_wall= LoadTexture("picture/village/house/wall.bmp",255);
 	wheel=LoadTexture("picture/trailler/wheel.bmp",255);
-	v= new Village(Point(-20,0,-40),40,30,house_door,house_wall,house_window,house_roof,mill_door,mill_wall,mill_window,mill_roof,mill_blade,tree_brown,tree_green);
-	t=new Trailler(Point(0,5,-10), 15, 15, 30, 7, 10, 1, 6, 1, 1, 3, 4, 2.5,0.5,0.5,house_wall,house_roof[1],-1,glass,house_door,house_window, house_wall, wheel, house_roof[3]);
+	test=LoadTexture("picture/test.bmp",255);
+	fire[0]=LoadTexture("picture/holo/fire/0.bmp",255);
+	fire[1]=LoadTexture("picture/holo/fire/1.bmp",255);
+	fire[2]=LoadTexture("picture/holo/fire/2.bmp",255);
+	fire[3]=LoadTexture("picture/holo/fire/3.bmp",255);
+	fire[4]=LoadTexture("picture/holo/fire/4.bmp",255);
+	fire[5]=LoadTexture("picture/holo/fire/5.bmp",255);
+	fire[6]=LoadTexture("picture/holo/fire/6.bmp",255);
+	fire[7]=LoadTexture("picture/holo/fire/7.bmp",255);
+	fire[8]=LoadTexture("picture/holo/fire/8.bmp",255);
+	fire[9]=LoadTexture("picture/holo/fire/9.bmp",255);
+	smoke = LoadTexture("picture/holo/smoke.bmp",255);
+	coal = LoadTexture("picture/holo/coal.bmp",255);
+	control_panel = LoadTexture("picture/holo/control panel.bmp",255);
+	iron = LoadTexture("picture/holo/iron.bmp",255);
+	holo_body= LoadTexture("picture/holo/body.bmp",255);
+	holo_door= LoadTexture("picture/holo/door.bmp",255);
+	trailler_door=LoadTexture("picture/trailler/door.bmp",255);
+	trailler_wall=LoadTexture("picture/trailler/wall.bmp",255);
+	trailler_cover=LoadTexture("picture/trailler/cover.bmp",255);
+
+	//v= new Village(Point(-20,0,-40),40,30,house_door,house_wall,house_window,house_roof,mill_door,mill_wall,mill_window,mill_roof,mill_blade,tree_brown,tree_green);
+	t=new Trailler(Point(-35,25,-10), 15, 15, 30, 7, 10, 1, 6, 1, 1, 8, 4, 2.5,0.5,0.5,house_wall,trailler_cover,-1,glass,house_door,house_window, house_wall, wheel, house_roof[3]);
+	Object o = Object();
+	lt= new LeaderTrailler(Point (0,0,0), 15,15,5,30,5,30,10,5,5,5,10,7,10,2.5,0.5,0.5,house_wall,glass,house_door,smoke,coal,holo_body,holo_body,holo_door,fire,wheel,house_roof[3], control_panel, iron);
 	return TRUE;										// Initialization Went OK
 }
-
-
+Camera c1 = Camera( keys);
 
 float angle = 0;
 float angle2 = 0;
@@ -140,26 +175,54 @@ void location(){
 
 }
 
-	Point bottom_left_back=  Point (0,3,0);
+	/*Point bottom_left_back=  Point (0,3,0);
 	float length=40, hight=20,depth=20;
 	float door_length=7, door_hight=5*hight/6.0;
 	bool is_door_open=0;
-	float door_angle=0, door_angle_change=0;
+	float door_angle=0, door_angle_change=0;*/
+int i=0;
+bool Collision(Point pos)
+{
+	if (t->CollisionTrailler(pos) && lt->CollisionTrailler(pos))
+		return 1;
+	return 0;
+}
 void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 {
 
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
 	glTranslated(0,-3,-8);
-	location();
-	
-	
+	//location();
+	Camera c2 = Camera(c1);
+	c2.kb();
+	if (Collision(c2.cPos))
+		c1.move();
+	/*i%=10;
+	glBindTexture(GL_TEXTURE_2D,fire[i++]);
+	glBegin(GL_QUADS);
+		glTexCoord2d(0,0);
+		glVertex3d(-10,-10,0);
+		
+		glTexCoord2d(1,0);
+		glVertex3d(10,-10,0);
+		
+		glTexCoord2d(1,1);
+		glVertex3d(10,10,0);
+			
+		glTexCoord2d(0,1);
+		glVertex3d(-10,10,0);
+	glEnd();
+	*/
 
 	
-	v->DrawVillage();
-	Skybox s= Skybox(Point(-50,0,-50),100,100,100,skybox);
-	s.DrawSkybox();
-	t->DrawTrailler();
+//	glTranslated(-30,0,0);
+	//v->DrawVillage();
+	premitives::DrawCupe(Point(-100,0,-100),1000,100,1000,skybox);
+	t->DrawTrailler(keys,c1.cPos);
+//	glTranslated(20,0,0);
+
+	lt->DrawLeaderTrailler(keys,c1.cPos);
 
 	
 

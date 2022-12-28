@@ -66,6 +66,7 @@
     <ClCompile Include="animal.cpp" />
     <ClCompile Include="Door.cpp" />
     <ClCompile Include="House.cpp" />
+    <ClCompile Include="LeaderTrailler.cpp" />
     <ClCompile Include="Mill.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Point.cpp" />
@@ -81,8 +82,10 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animal.h" />
+    <ClInclude Include="Camera.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="House.h" />
+    <ClInclude Include="LeaderTrailler.h" />
     <ClInclude Include="Mill.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Point.h" />

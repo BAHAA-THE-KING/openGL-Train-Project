@@ -85,17 +85,17 @@ premitives::~premitives(void)
 			glBindTexture(GL_TEXTURE_2D,texture);
 			glBegin(GL_QUADS);
 
-			glTexCoord2f(0,0);
-			glVertex3f(a.x,a.y,a.z);
+				glTexCoord2f(angle/(2*3.14),a.z/height);
+				glVertex3f(a.x,a.y,a.z);
 			
-			glTexCoord2f(0,1);
-			glVertex3f(b.x,b.y,b.z);
+				glTexCoord2f(angle/(2*3.14),b.z/height);
+				glVertex3f(b.x,b.y,b.z);
 			
-			glTexCoord2f(1,1);
-			glVertex3f(c.x,c.y,c.z);
+				glTexCoord2f((angle+0.1)/(2*3.14),c.z/height);
+				glVertex3f(c.x,c.y,c.z);
 			
-			glTexCoord2f(1,0);
-			glVertex3f(d.x,d.y,d.z);
+				glTexCoord2f((angle+0.1)/(2*3.14),d.z/height);
+				glVertex3f(d.x,d.y,d.z);
 
 			glEnd();
 	}

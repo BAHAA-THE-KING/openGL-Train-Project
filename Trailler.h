@@ -16,6 +16,7 @@ public:
 	Window window[2];
 	vector <Wheel> wheel;
 	float way_length, way_hight;
+	float safety_distance;
 	int texture_body, texture_fence, texture_way;
 	Trailler(void);
 	~Trailler(void);
@@ -26,16 +27,24 @@ public:
 			float wheel_rad, float wheel_length, float wheel_width,
 			int texture_body, int texture_cover, int texture_cover_box, int texture_window,
 			int texture_door, int texture_fence, int texture_way, int texture_wheel, int texture_wheel_stick);
-	void DrawTrailler();
-
+	void DrawTrailler(bool *keys, Point pos);
+	bool CollisionTrailler(Point pos);
 
 private:
-	void DrawTop();
-	void DrawBottom();
-	void DrawBack();
-	void DrawFront();
-	void DrawLeft();
-	void DrawRight();
-	void DrawWay();
+	void DrawTop(bool *keys, Point pos);
+	void DrawBottom(bool *keys, Point pos);
+	void DrawBack(bool *keys, Point pos);
+	void DrawFront(bool *keys, Point pos);
+	void DrawLeft(bool *keys, Point pos);
+	void DrawRight(bool *keys, Point pos);
+	void DrawWay(bool *keys, Point pos);
+
+
+	bool CollisionTop(Point pos);
+	bool CollisionBottom(Point pos);
+	bool CollisionBack(Point pos);
+	bool CollisionLeft(Point pos);
+	bool CollisionRight(Point pos);
+	bool CollisionFront(Point pos);
 };
 
