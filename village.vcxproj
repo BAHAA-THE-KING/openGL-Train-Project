@@ -46,7 +46,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>GLAUX.lib;GLU32.lib;glut.lib;OPENGL32.lib;glut32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>GLAUX.lib;GLU32.lib;glut.lib;OPENGL32.lib;glut32.lib;SOIL.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -63,26 +63,20 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="animal.cpp" />
-    <ClCompile Include="Door.cpp" />
-    <ClCompile Include="House.cpp" />
-    <ClCompile Include="LeaderTrailler.cpp" />
-    <ClCompile Include="Mill.cpp" />
-    <ClCompile Include="Object.cpp" />
-    <ClCompile Include="Point.cpp" />
-    <ClCompile Include="premitives.cpp" />
-    <ClCompile Include="Skybox.cpp" />
     <ClCompile Include="texture.cpp" />
-    <ClCompile Include="Trailler.cpp" />
-    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="source.cpp" />
-    <ClCompile Include="Village.cpp" />
-    <ClCompile Include="Wheel.cpp" />
-    <ClCompile Include="Window.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="animal.h" />
     <ClInclude Include="Camera.h" />
+    <ClInclude Include="ChildrenFootBall.h" />
+    <ClInclude Include="ChildrenLibrary.h" />
+    <ClInclude Include="ChildrenRingGame.h" />
+    <ClInclude Include="ChildrenTable.h" />
+    <ClInclude Include="ChildrenTableWithChair.h" />
+    <ClInclude Include="ChildrenTent.h" />
+    <ClInclude Include="ChildrenTrailler.h" />
+    <ClInclude Include="ChildrenWheelGame.h" />
     <ClInclude Include="Door.h" />
     <ClInclude Include="House.h" />
     <ClInclude Include="LeaderTrailler.h" />

@@ -7,25 +7,34 @@
  */
 
 #include <windows.h>		// Header File For Windows
-#include <gl\gl.h>			// Header File For The OpenGL32 Library
-#include <gl\glu.h>			// Header File For The GLu32 Library
+#include <gl/gl.h>			// Header File For The OpenGL32 Library
+#include <gl/glu.h>			// Header File For The GLu32 Library
 #include <glaux.h>		// Header File For The Glaux Library
+#include "stdc++.h"
+using namespace std;
+#include "Point.h"
 #include "texture.h"
+#include "soil/src/SOIL/SOIL.h"
+#include "Camera.h"
+#include "premitives.h"
+#include "Door.h"
+#include "Window.h"
+#include "ChildrenTable.h"
 #include "House.h"
 #include "Mill.h"
-#include "stdc++.h"
 #include "Tree.h"
 #include "Village.h"
 #include "Skybox.h"
-#include "Point.h"
-#include "premitives.h"
 #include "Wheel.h"
 #include "Trailler.h"
 #include "LeaderTrailler.h"
-#include "Camera.h"
-#include "Object.h"
-#include "Door.h"
-
+#include "ChildrenTableWithChair.h";
+#include "ChildrenLibrary.h"
+#include "ChildrenRingGame.h"
+#include "ChildrenWheelGame.h"
+#include "ChildrenFootBall.h"
+#include "ChildrenTent.h"
+#include "ChildrenTrailler.h"
 
 using namespace std;
 HDC			hDC = NULL;		// Private GDI Device Context
@@ -74,10 +83,13 @@ int control_panel;
 int iron;
 int holo_door, holo_body;
 int trailler_door, trailler_wall, trailler_cover;
+int ball, colorful_cylinder,goal,wheel_game_carpet,wheel_game;
+int tent_front, tent_around;
 Village *v;
 Trailler *t ; 
 LeaderTrailler *lt ;
-
+ChildrenTrailler *ct;
+int earth;
 int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 {
 	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
@@ -117,7 +129,7 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	fire[7]=LoadTexture("picture/holo/fire/7.bmp",255);
 	fire[8]=LoadTexture("picture/holo/fire/8.bmp",255);
 	fire[9]=LoadTexture("picture/holo/fire/9.bmp",255);
-	smoke = LoadTexture("picture/holo/smoke.bmp",255);
+	smoke = LoadTexture("picture/holo/smoke.bmp",200);
 	coal = LoadTexture("picture/holo/coal.bmp",255);
 	control_panel = LoadTexture("picture/holo/control panel.bmp",255);
 	iron = LoadTexture("picture/holo/iron.bmp",255);
@@ -126,11 +138,21 @@ int InitGL(GLvoid)										// All Setup For OpenGL Goes Here
 	trailler_door=LoadTexture("picture/trailler/door.bmp",255);
 	trailler_wall=LoadTexture("picture/trailler/wall.bmp",255);
 	trailler_cover=LoadTexture("picture/trailler/cover.bmp",255);
-
-	//v= new Village(Point(-20,0,-40),40,30,house_door,house_wall,house_window,house_roof,mill_door,mill_wall,mill_window,mill_roof,mill_blade,tree_brown,tree_green);
-	t=new Trailler(Point(-35,25,-10), 15, 15, 30, 7, 10, 1, 6, 1, 1, 8, 4, 2.5,0.5,0.5,house_wall,trailler_cover,-1,glass,house_door,house_window, house_wall, wheel, house_roof[3]);
-	Object o = Object();
+	earth= LoadTexture("Earth.bmp",255);
+	ball = LoadTexture("picture/childrentrailler/ball.bmp",255);
+	colorful_cylinder = LoadTexture("picture/childrentrailler/color ful cylinder.bmp",255);
+	goal = LoadTexture("picture/childrentrailler/goal.bmp",125);
+	wheel_game_carpet = LoadTexture("picture/childrentrailler/wheel game carpet.bmp",255);
+	wheel_game = LoadTexture("picture/childrentrailler/wheel game.bmp",255);
+	tent_front = LoadTexture("picture/childrentrailler/tent front.bmp",255);
+	tent_around = LoadTexture("picture/childrentrailler/tent around.bmp",255);
+	v= new Village(Point(-20,0,-40),40,30,house_door,house_wall,house_window,house_roof,mill_door,mill_wall,mill_window,mill_roof,mill_blade,tree_brown,tree_green);
+	//t=new Trailler(Point(-35,25,-10), 15, 15, 30, 7, 10, 1, 6, 1, 1, 8, 4, 2.5,0.5,0.5,house_wall,trailler_cover,-1,glass,house_door,house_window, house_wall, wheel, house_roof[3]);
 	lt= new LeaderTrailler(Point (0,0,0), 15,15,5,30,5,30,10,5,5,5,10,7,10,2.5,0.5,0.5,house_wall,glass,house_door,smoke,coal,holo_body,holo_body,holo_door,fire,wheel,house_roof[3], control_panel, iron);
+	ct = new ChildrenTrailler(Point(-100,20,-100),27,15,40,7,10,1,5,1,1,10,5,3,1,1,house_wall,house_wall,house_wall,house_wall,house_wall,house_wall,mill_wall,mill_wall,mill_wall,mill_wall,mill_wall,mill_wall,trailler_cover,-1,
+		glass,house_door,house_window,house_wall,wheel,house_roof[1],4,house_wall,house_roof,mill_wall,mill_wall,iron,colorful_cylinder,tent_around,tent_front,wheel_game,colorful_cylinder
+		,wheel_game_carpet,goal,earth);
+
 	return TRUE;										// Initialization Went OK
 }
 Camera c1 = Camera( keys);
@@ -175,58 +197,35 @@ void location(){
 
 }
 
-	/*Point bottom_left_back=  Point (0,3,0);
-	float length=40, hight=20,depth=20;
-	float door_length=7, door_hight=5*hight/6.0;
-	bool is_door_open=0;
-	float door_angle=0, door_angle_change=0;*/
 int i=0;
+/*
 bool Collision(Point pos)
 {
-	if (t->CollisionTrailler(pos) && lt->CollisionTrailler(pos))
+	if (t->CollisionTrailler(pos) && lt->CollisionTrailler(pos) && ct->CollisionChildrenTrailler(pos))
 		return 1;
 	return 0;
-}
+}*/
+float z=0;
 void DrawGLScene(GLvoid)									// Here's Where We Do All The Drawing
 {
-
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();									// Reset The Current Modelview Matrix
-	glTranslated(0,-3,-8);
-	//location();
 	Camera c2 = Camera(c1);
 	c2.kb();
-	if (Collision(c2.cPos))
+	Point pos = Point(c2.cPos.x,c2.cPos.y,c2.cPos.z);
+	pos.z-=z;
+	//if (Collision(pos))
 		c1.move();
-	/*i%=10;
-	glBindTexture(GL_TEXTURE_2D,fire[i++]);
-	glBegin(GL_QUADS);
-		glTexCoord2d(0,0);
-		glVertex3d(-10,-10,0);
-		
-		glTexCoord2d(1,0);
-		glVertex3d(10,-10,0);
-		
-		glTexCoord2d(1,1);
-		glVertex3d(10,10,0);
-			
-		glTexCoord2d(0,1);
-		glVertex3d(-10,10,0);
-	glEnd();
-	*/
 
+	premitives::DrawCupe(Point(-900,0,-900),1000,100,1000,skybox);
+	v->DrawVillage();
+	glTranslated(0,0,z);
+	//t->DrawTrailler(keys,pos);
+	lt->DrawLeaderTrailler(keys,pos);
 	
-//	glTranslated(-30,0,0);
-	//v->DrawVillage();
-	premitives::DrawCupe(Point(-100,0,-100),1000,100,1000,skybox);
-	t->DrawTrailler(keys,c1.cPos);
-//	glTranslated(20,0,0);
+	ct->DrawChildrenTrailler(keys,pos,c1.cC);
 
-	lt->DrawLeaderTrailler(keys,c1.cPos);
-
-	
-
-
+	premitives::DrawBall(5,ball);
 	glFlush();											// Done Drawing The Quad	
 
 	//DO NOT REMOVE THIS
@@ -327,7 +326,7 @@ BOOL CreateGLWindow(char* title, int width, int height, int bits, bool fullscree
 		if (ChangeDisplaySettings(&dmScreenSettings, CDS_FULLSCREEN) != DISP_CHANGE_SUCCESSFUL)
 		{
 			// If The Mode Fails, Offer Two Options.  Quit Or Use Windowed Mode.
-			if (MessageBox(NULL, "The Requested Fullscreen Mode Is Not Supported By\nYour Video Card. Use Windowed Mode Instead?", "NeHe GL", MB_YESNO | MB_ICONEXCLAMATION) == IDYES)
+			if (MessageBox(NULL, "The Requested Fullscreen Mode Is Not Supported By/nYour Video Card. Use Windowed Mode Instead?", "NeHe GL", MB_YESNO | MB_ICONEXCLAMATION) == IDYES)
 			{
 				fullscreen = FALSE;		// Windowed Mode Selected.  Fullscreen = FALSE
 			}

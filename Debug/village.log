@@ -1,17 +1,7 @@
-﻿Build started 12/28/2022 2:50:48 PM.
+﻿Build started 1/2/2023 2:25:03 PM.
      1>Project "C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\village\village.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt Object.cpp source.cpp
-         Object.cpp
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(30): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(31): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(32): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(33): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(38): warning C4305: '+=' : truncation from 'double' to 'float'
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(39): warning C4305: '-=' : truncation from 'double' to 'float'
-     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(49): warning C4305: '+=' : truncation from 'double' to 'float'
-         Generating Code...
-         Compiling...
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt source.cpp
          source.cpp
      1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(30): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
      1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(31): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
@@ -20,27 +10,223 @@
      1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(38): warning C4305: '+=' : truncation from 'double' to 'float'
      1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(39): warning C4305: '-=' : truncation from 'double' to 'float'
      1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\camera.h(49): warning C4305: '+=' : truncation from 'double' to 'float'
-         Generating Code...
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(11): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(12): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(13): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(13): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(19): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(22): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(24): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(65): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(78): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(81): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(84): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(87): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(103): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(107): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(109): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(110): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(111): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(112): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\premitives.h(113): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(20): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(21): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(70): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(71): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(71): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(74): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(80): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(81): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(82): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(83): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(88): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(94): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(95): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(96): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(97): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(117): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\window.h(119): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentable.h(19): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(134): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(136): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(156): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(158): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(167): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(169): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(186): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(188): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(197): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(199): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(218): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(220): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(229): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(231): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(250): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(252): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(261): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\house.h(263): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(37): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(38): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(44): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(51): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(53): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(54): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(57): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(61): warning C4244: 'argument' : conversion from 'int' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(70): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(71): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\village.h(74): warning C4018: '<' : signed/unsigned mismatch
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(37): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(62): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(69): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(76): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(77): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(78): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(79): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(200): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(265): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(326): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\trailler.h(399): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(42): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(58): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(59): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(60): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(63): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(64): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(67): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(68): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(69): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(70): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(72): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(73): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(74): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(75): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(80): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(212): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(212): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(239): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(240): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(241): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(242): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(245): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(245): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(258): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(259): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(266): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(266): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(279): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(280): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(290): warning C4305: 'initializing' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(290): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(319): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(320): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(321): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(322): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(326): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(339): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(340): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(349): warning C4305: '=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(349): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(380): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(381): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(382): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(383): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(405): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(418): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(419): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(446): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(459): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(460): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(468): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(468): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(495): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(498): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(508): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(511): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(526): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(529): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(532): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(535): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(544): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(547): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(550): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(553): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(566): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(569): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(572): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(575): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(588): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(590): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(594): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(603): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(609): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(612): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(614): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(704): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(707): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(729): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\leadertrailler.h(732): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\source.cpp(31): warning C4067: unexpected tokens following preprocessor directive - expected a newline
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(44): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(48): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(55): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(59): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(65): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(69): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(76): warning C4244: '+=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentablewithchair.h(80): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenlibrary.h(32): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenlibrary.h(41): warning C4244: 'initializing' : conversion from 'float' to 'int', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenlibrary.h(51): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenringgame.h(23): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenringgame.h(39): warning C4244: 'argument' : conversion from 'int' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenringgame.h(40): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenringgame.h(42): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenringgame.h(44): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(37): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(40): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(43): warning C4305: '+=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(45): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(53): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(53): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(55): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(55): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(57): warning C4305: 'argument' : truncation from 'double' to 'GLfloat'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(57): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenwheelgame.h(61): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(41): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(43): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(47): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(57): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(63): warning C4305: '-=' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(92): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrenfootball.h(93): warning C4244: '=' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentent.h(34): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentent.h(44): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentent.h(55): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentent.h(68): warning C4244: 'argument' : conversion from 'double' to 'GLfloat', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(38): warning C4244: 'initializing' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(39): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(40): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(41): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(42): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(43): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(43): warning C4305: 'argument' : truncation from 'double' to 'float'
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(44): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(89): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(90): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(91): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(92): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(94): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(95): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(96): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
+     1>c:\users\moaaz\documents\visual studio 2012\projects\village\village\childrentrailler.h(97): warning C4244: 'argument' : conversion from 'double' to 'float', possible loss of data
        Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.lib" /MACHINE:X86 Debug\animal.obj
-         Debug\Door.obj
-         Debug\House.obj
-         Debug\LeaderTrailler.obj
-         Debug\Mill.obj
-         Debug\Object.obj
-         Debug\Point.obj
-         Debug\premitives.obj
-         Debug\Skybox.obj
-         Debug\texture.obj
-         Debug\Trailler.obj
-         Debug\Tree.obj
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.exe" /INCREMENTAL /NOLOGO GLAUX.lib GLU32.lib glut.lib OPENGL32.lib glut32.lib SOIL.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.lib" /MACHINE:X86 Debug\texture.obj
          Debug\source.obj
-         Debug\Village.obj
-         Debug\Wheel.obj
-         Debug\Window.obj
          village.vcxproj -> C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\Debug\village.exe
      1>Done Building Project "C:\Users\MOAAZ\Documents\Visual Studio 2012\Projects\village\village\village.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:05.35
+Time Elapsed 00:00:02.15
